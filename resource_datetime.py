@@ -10,21 +10,19 @@ import time
 import datetime
 
 def get_current_timestamp():
+    dformat='%Y-%m-%d %H:%M:%S'
     ts = time.time()
-
-    st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d %H:%M:%S')
+    st = datetime.datetime.fromtimestamp(ts).strftime(dformat)
     return st
 
 def get_current_date():
+    dformat='%Y-%m-%d'
     ts = time.time()
-
-    st = datetime.datetime.fromtimestamp(ts).strftime('%Y-%m-%d')
+    st = datetime.datetime.fromtimestamp(ts).strftime(dformat)
     return st
 
 def get_current_time():
+    dformat='%H:%M:%S'
     ts = time.time()
-
-    st = datetime.datetime.fromtimestamp(ts).strftime('%H:%M:%S')
+    st = datetime.datetime.fromtimestamp(ts).strftime(dformat)
     return st
-
-
