@@ -1,5 +1,5 @@
 #// ------------------------------------
-#// Title: resource_crypto.py
+#// Title: resource_datetime.py
 #// Description: Common datetime functions
 #// Author: Jeffrey Wilson
 #// Email: m00dimus@gmail.com
