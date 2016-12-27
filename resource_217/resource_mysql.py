@@ -12,9 +12,9 @@ class mysqlDB(object):
 		self.conn = ''
 
 	def connect(self, host='localhost', port=3306, user='', passwd='', db=''):
-	'''
-	Open a connection to a database.
-	'''
+		'''
+		Open a connection to a database.
+		'''
 		try:
 			self.conn = pymysql.connect(host=host, port=port, user=user, passwd=passwd, db=db)
 			return True
