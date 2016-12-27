@@ -108,7 +108,6 @@ def gettimestampoffset(d1,sDateFormat='%Y-%m-%d %H:%M:%S',days=0,seconds=0):
 
     If sDateFormat is specified then other date formats can be processed.
     '''
-
     if isvaliddate(d1,sDateFormat):
         try:
             if type(d1)==str:
