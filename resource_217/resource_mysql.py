@@ -10,8 +10,11 @@ class mysqlDB(object):
 		self.filepath = ''
 		self.sqlcount = 0
 		self.conn = ''
-	
+
 	def connect(self, host='localhost', port=3306, user='', passwd='', db=''):
+	'''
+	Open a connection to a database.
+	'''
 		try:
 			self.conn = pymysql.connect(host=host, port=port, user=user, passwd=passwd, db=db)
 			return True
@@ -24,9 +27,9 @@ class mysqlDB(object):
 		'''
 		Execute sql query and print elapsed time if needed
 		'''
-		
+
 		#// check if valid sql
-		if etime==1: 
+		if etime==1:
 			start_time = time.clock()
 		if len(sSQL) > 0:
 			try:
@@ -38,7 +41,7 @@ class mysqlDB(object):
 				print('SQL Failed')
 		else:
 			print("Empty SQL statement.")
-		
+
 		#// increment counter
 		self.sqlcount += 1
 
@@ -48,8 +51,11 @@ class mysqlDB(object):
 			return result
 		else:
 			return None
-			
+
 	def getLastInsert(self):
+		'''
+		Get result of last query.
+		'''
 		c = self.conn.cursor()
 		#sSQL = "SELECT last_insert_rowid();"
 		sSQL = 'SELECT LAST_INSERT_ID();'
@@ -58,34 +64,50 @@ class mysqlDB(object):
 		return result[0]
 
 	def dbClose(self):
-		self.conn.close()	
-		
+		'''
+		Close the active database.
+		'''
+		self.conn.close()
+
 	def dbStartTransaction(self):
+		'''
+		Start a SQL transaction.
+		'''
 		sSQL = 'START TRANSACTION;'
 		self.dbSQL(sSQL)
-		
+
 	def dbEndTransaction(self):
+		'''
+		End a SQL transaction.
+		'''
 		sSQL = 'COMMIT;'
 		result=self.dbSQL(sSQL)
-		
+
 	def dbSchema(self,table=''):
+		'''
+		Show a description for a table.
+		'''
 		if table:
 			sSQL = 'describe ' + table + ';'
 		else:
 			sSQL = 'show tables;'
 		result=self.dbSQL(sSQL)
-	
+
 		return result
 
 	def dbTables(self,table=''):
+		'''
+		Show a list of tables in the active database.
+		'''
 		if table:
 			sSQL = 'show tables;'
 		else:
 			sSQL = 'show tables;'
 		result=self.dbSQL(sSQL)
 		return result
-	
-	def dbSQLCount(self):
-		return self.sqlcount
-	
 
+	def dbSQLCount(self):
+		'''
+		Display SQL queries in session.
+		'''
+		return self.sqlcount
