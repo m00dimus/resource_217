@@ -7,9 +7,7 @@
 #// ------------------------------------
 
 def isconsonant(s):
-    '''
-    Check if character is a consonant
-    '''
+    """ Check if character is a consonant """
     #// accept only strings with length of 1
     if not isinstance(s,str) or len(s) > 1:
         return False
@@ -19,9 +17,7 @@ def isconsonant(s):
     return False
 
 def isvowel(s):
-    '''
-    Check if character is a vowel
-    '''
+    """ Check if character is a vowel """
     #// accept only strings with length of 1
     if not isinstance(s,str) or len(s) > 1:
         return False
