@@ -7,9 +7,17 @@ import pymysql
 import sys
 sys.path.append("../")
 
+import os
 from resource_mysql import mysqlDB
 
 def main():
+
+	try:
+		USERNAME=os.environ["mysql_username"]
+		PASSWORD=os.environ["mysql_password"]
+	except:
+		USERNAME=""
+		PASSWORD=""
 
 	r = 2500
 
@@ -17,7 +25,7 @@ def main():
 
 	db = mysqlDB()
 
-	if not db.connect(host='localhost', port=3306, user='Username5984', passwd='Password5984', db='python_test'):
+	if not db.connect(host='localhost', port=3306, user=USERNAME, passwd=PASSWORD, db='python_test'):
 		sys.exit()
 
 	print('\nTest#1 - Dispay schema for all tables')
@@ -113,7 +121,7 @@ def main():
 
 def main_database_test():
 	sSQL = 'SELECT * FROM devices;'
-	conn = pymysql.connect(host='localhost', port=3306, user='WilsonJP', passwd='SuperPassword1', db='python_test')
+	conn = pymysql.connect(host='localhost', port=3306, user=USERNAME, passwd=PASSWORD, db='python_test')
 	conn.execute(sSQL)
 	conn.commit()
 
