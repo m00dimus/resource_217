@@ -7,10 +7,13 @@
 #// Version: 0.1-20160207 (python 3.4.3)
 #// ------------------------------------
 
+import sys
+sys.path.append("../")
+
 import resource_networking as test
 
 
-def main(): 
+def main():
     '''
     Test networking module
     '''
@@ -22,7 +25,7 @@ def main():
             print('Routable - ' + ipaddr)
         else:
             print('Not Routable - ' + ipaddr)
-            
+
     print()
     print('Test Class B Network')
     ipaddrange=['172.15.255.255','172.16.1.1','172.31.255.255','172.32.1.1']
@@ -31,8 +34,8 @@ def main():
             print('Routable - ' + ipaddr)
         else:
             print('Not Routable - ' + ipaddr)
-            
-    
+
+
     print()
     print('Test Class C Network')
     ipaddrange=['192.167.255.255','192.168.1.1','192.168.255.255','192.169.1.1']
@@ -41,7 +44,7 @@ def main():
             print('Routable - ' + ipaddr)
         else:
             print('Not Routable - ' + ipaddr)
-    
+
 
     print()
     print('Test Routable Random IPs')
@@ -66,7 +69,7 @@ def main():
     iplist = test.GetRandomIPList(iplower,ipupper)
     print(iplist)
 
-    print()    
+    print()
     print('Test swapped upper and lower inputs')
     print('Getting ' + str(numberlist) + ' random IPs between ' + ipupper + ' and ' + iplower)
     iplist = test.GetRandomIPList(ipupper,iplower,numberlist)
@@ -81,19 +84,19 @@ def main():
             print('Routable - ' + ipaddr)
         else:
             print('Not Routable - ' + ipaddr)
-    
+
     print()
     print('Test Count IPs in range')
     iplower='10.168.1.10'
     ipupper='10.168.1.25'
     num=test.CountIPsInRange(iplower,ipupper)
     print('There are ' + str(num) + ' between ' + iplower + ' and ' + ipupper)
-    
+
     iplower='10.168.1.1'
     ipupper='10.168.2.255'
     num=test.CountIPsInRange(iplower,ipupper)
     print('There are ' + str(num) + ' between ' + iplower + ' and ' + ipupper)
-    
+
     iplower='168.161.1.1'
     ipupper='170.163.255.255'
     num=test.CountIPsInRange(iplower,ipupper)
@@ -105,22 +108,22 @@ def main():
     num=test.CountIPsInRange(iplower,ipupper)
     print('There are ' + str(num) + ' between ' + iplower + ' and ' + ipupper)
 
-  
+
     print()
     print('Test swapped upper and lower inputs')
     num=test.CountIPsInRange(ipupper,iplower)
     print('There are ' + str(num) + ' between ' + iplower + ' and ' + ipupper)
-    
+
     print()
     print('Test malformed inputs')
     stripv4='aaa.bbb.ccc.ddd'
     print('Test value is :"' + stripv4 + '"')
     print('Test strings for IPv4toNum')
     print(test.IPv4toNum(stripv4))
-    
+
     print('Test strings for NumToIPv4')
     print(test.NumToIPv4('aaa.bbb.ccc.ddd'))
-    
+
 
 
 if __name__ == '__main__':

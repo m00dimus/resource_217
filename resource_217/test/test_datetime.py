@@ -7,6 +7,9 @@
 #// Version: 0.2-20160116 (python 3.4.3)
 #// ------------------------------------
 
+import sys
+sys.path.append("../")
+
 import resource_datetime as test
 import random
 

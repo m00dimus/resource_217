@@ -7,6 +7,10 @@
 #// Email: m00dimus@gmail.com
 #// Version: 0.2-20160115 (python 3.4.3)
 #// ------------------------------------
+
+import sys
+sys.path.append("../")
+
 import unittest
 import resource_string as test
 
